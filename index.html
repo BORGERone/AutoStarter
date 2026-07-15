@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoStart Manager</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <div class="window-controls-wrapper">
+        <div class="window-controls">
+          <button class="window-btn" id="btn-minimize">
+            <svg viewBox="0 0 12 12" fill="currentColor">
+              <rect x="1" y="5" width="10" height="2" rx="0.5"/>
+            </svg>
+          </button>
+          <button class="window-btn" id="btn-maximize">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1.5" y="1.5" width="9" height="9" rx="1"/>
+            </svg>
+          </button>
+          <button class="window-btn window-close" id="btn-close">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 2L10 10M10 2L2 10"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="launcher-container">
+        <header class="header" data-tauri-drag-region>
+          <div class="logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h1><span data-i18n="app_title">Auto</span><span class="highlight" data-i18n="app_title_hl">Start</span></h1>
+          </div>
+          <div class="header-controls" data-tauri-drag-region="false">
+          </div>
+        </header>
+
+        <main class="main-content">
+          <div class="programs-list" id="programs-list">
+            <div class="empty-state" id="empty-state">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-icon">
+                <path d="M24 4L4 14v20l20 10 20-10V14L24 4z"/>
+                <path d="M4 14l20 10 20-10"/>
+                <path d="M24 24v20"/>
+              </svg>
+              <p class="empty-title" data-i18n="empty_title">No programs added</p>
+              <p class="empty-desc" data-i18n="empty_desc">Click "+ Добавить" to add applications</p>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="footer-left">
+            <span class="footer-text">AutoStart Manager</span>
+            <span class="footer-count" id="footer-count">0 programs</span>
+          </div>
+          <div class="footer-right">
+            <button class="btn-icon" id="btn-settings" title="Settings">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+                <line x1="3" y1="3.5" x2="13" y2="3.5"/>
+                <circle cx="8" cy="3.5" r="2" fill="var(--obsidian-dark)" stroke-width="1.2"/>
+                <line x1="3" y1="8" x2="13" y2="8"/>
+                <circle cx="11" cy="8" r="2" fill="var(--obsidian-dark)" stroke-width="1.2"/>
+                <line x1="3" y1="12.5" x2="13" y2="12.5"/>
+                <circle cx="5" cy="12.5" r="2" fill="var(--obsidian-dark)" stroke-width="1.2"/>
+              </svg>
+            </button>
+            <button class="btn-add" id="btn-add-program">+ <span data-i18n="add">Добавить</span></button>
+          </div>
+        </footer>
+      </div>
+
+      <!-- Settings Modal -->
+      <div class="modal-overlay" id="settings-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 data-i18n="settings_title">Settings</h2>
+            <button class="modal-close" id="btn-settings-close">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M1 1L11 11M11 1L1 11"/>
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="settings-group">
+              <div class="setting-row">
+                <span data-i18n="lang_label">Language</span>
+                <select class="setting-select" id="setting-lang">
+                  <option value="en">English</option>
+                  <option value="zh">中文</option>
+                  <option value="es">Español</option>
+                  <option value="ar">العربية</option>
+                  <option value="pt">Português</option>
+                  <option value="ru">Русский</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                  <option value="ja">日本語</option>
+                  <option value="hi">हिन्दी</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-group">
+              <label class="setting-row toggle-row">
+                <span data-i18n="launch_minimized">Launch to tray</span>
+                <span class="toggle">
+                  <input type="checkbox" class="tgl-setting" id="setting-minimized">
+                  <span class="toggle-slider"></span>
+                </span>
+              </label>
+            </div>
+            <div class="settings-group">
+              <label class="setting-row toggle-row">
+                <span data-i18n="app_autostart">App autostart</span>
+                <span class="toggle">
+                  <input type="checkbox" class="tgl-setting" id="setting-autostart">
+                  <span class="toggle-slider"></span>
+                </span>
+              </label>
+            </div>
+            <div class="settings-group">
+              <label class="setting-row toggle-row" id="setting-close-after-row">
+                <span data-i18n="close_after_execution">Close after execution</span>
+                <span class="toggle">
+                  <input type="checkbox" class="tgl-setting" id="setting-close-after">
+                  <span class="toggle-slider"></span>
+                </span>
+              </label>
+            </div>
+            <div class="settings-group info-group">
+              <p class="settings-info" data-i18n="settings_info">"Close after execution" launches a 30-second version at startup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

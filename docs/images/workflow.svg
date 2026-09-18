@@ -1,62 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" fill="none" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="470" viewBox="0 0 1280 470" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">Как настроить AutoStarter: три шага</title>
   <desc id="desc">Добавьте программы и включите их карточки. Выберите режимы окон и включите автозапуск менеджера. При следующем входе в Windows менеджер запустит включённые программы. Ручной запуск менеджера тоже запускает включённые записи.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="440" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0C131D"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A121C"/>
+      <stop offset=".6" stop-color="#0A1119"/>
       <stop offset="1" stop-color="#0B0D17"/>
     </linearGradient>
-    <linearGradient id="card" x1="0" y1="110" x2="0" y2="332" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#15252A"/>
-      <stop offset="1" stop-color="#111922"/>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="translate(640 110) scale(700 320)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5FE3B4" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#5FE3B4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="130" x2="0" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16262B"/>
+      <stop offset="1" stop-color="#101820"/>
     </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1280" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3A5854"/>
+      <stop offset=".5" stop-color="#1D2933"/>
+      <stop offset="1" stop-color="#304459"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#C6FFE8"/>
+      <stop offset="1" stop-color="#4FC6A8"/>
+    </linearGradient>
+    <linearGradient id="track" x1="48" y1="0" x2="1232" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#80E8BF" stop-opacity=".1"/>
+      <stop offset=".5" stop-color="#80E8BF" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#80E8BF" stop-opacity=".1"/>
+    </linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="#9DB6C8" stroke-opacity=".04"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
   </defs>
-  <rect width="1280" height="440" rx="24" fill="url(#bg)"/>
-  <rect x=".5" y=".5" width="1279" height="439" rx="23.5" stroke="#24313B"/>
-  <g font-family="Segoe UI, Arial, sans-serif">
-    <text x="48" y="55" fill="#EEF4F8" font-size="25" font-weight="600">Один раз настроить. Запускать каждый день.</text>
-    <text x="48" y="83" fill="#9BACB9" font-size="15">От списка приложений — к запуску при входе в Windows.</text>
-    <g fill="url(#card)" stroke="#2C3E47">
-      <rect x="48" y="116" width="364" height="222" rx="18"/>
-      <rect x="458" y="116" width="364" height="222" rx="18"/>
-      <rect x="868" y="116" width="364" height="222" rx="18"/>
+
+  <rect width="1280" height="470" rx="26" fill="url(#bg)"/>
+  <rect width="1280" height="470" rx="26" fill="url(#grid)"/>
+  <rect width="1280" height="470" rx="26" fill="url(#halo)"/>
+  <rect x=".75" y=".75" width="1278.5" height="468.5" rx="25.25" stroke="url(#edge)" stroke-width="1.5"/>
+
+  <g font-family="Segoe UI, Inter, Arial, sans-serif">
+    <text x="48" y="58" fill="#F1F7FA" font-size="26" font-weight="600" letter-spacing="-.4">Один раз настроить. Запускать каждый день.</text>
+    <text x="48" y="87" fill="#93A6B4" font-size="15">От списка приложений — к автоматическому запуску при входе в Windows.</text>
+
+    <path d="M48 128H1232" stroke="url(#track)" stroke-width="2" stroke-dasharray="2 8"/>
+
+    <!-- cards -->
+    <g stroke="#2D4149">
+      <rect x="48" y="150" width="364" height="222" rx="20" fill="url(#card)"/>
+      <rect x="458" y="150" width="364" height="222" rx="20" fill="url(#card)"/>
+      <rect x="868" y="150" width="364" height="222" rx="20" fill="url(#card)"/>
     </g>
-    <g fill="#80E8BF" font-size="12" font-weight="600" letter-spacing="2">
-      <text x="76" y="155">01 / СПИСОК</text>
-      <text x="486" y="155">02 / НАСТРОЙКИ</text>
-      <text x="896" y="155">03 / ЗАПУСК</text>
+    <g fill="#80E8BF" fill-opacity=".85">
+      <rect x="76" y="149.25" width="72" height="2.5" rx="1.25"/>
+      <rect x="486" y="149.25" width="72" height="2.5" rx="1.25"/>
+      <rect x="896" y="149.25" width="72" height="2.5" rx="1.25"/>
     </g>
-    <g fill="#EEF4F8" font-size="23" font-weight="600">
-      <text x="76" y="212">Добавьте программы</text>
-      <text x="486" y="212">Выберите поведение</text>
-      <text x="896" y="212">Войдите в Windows</text>
+
+    <!-- step badges -->
+    <g>
+      <circle cx="78" cy="128" r="17" fill="#0D1A21" stroke="#3F6C5E"/>
+      <circle cx="78" cy="128" r="24" fill="#5FE3B4" fill-opacity=".12" filter="url(#soft)"/>
+      <text x="78" y="134" text-anchor="middle" fill="#8FF0CB" font-size="14" font-weight="700">1</text>
+      <circle cx="488" cy="128" r="17" fill="#0D1A21" stroke="#3F6C5E"/>
+      <circle cx="488" cy="128" r="24" fill="#5FE3B4" fill-opacity=".12" filter="url(#soft)"/>
+      <text x="488" y="134" text-anchor="middle" fill="#8FF0CB" font-size="14" font-weight="700">2</text>
+      <circle cx="898" cy="128" r="17" fill="#0D1A21" stroke="#3F6C5E"/>
+      <circle cx="898" cy="128" r="24" fill="#5FE3B4" fill-opacity=".12" filter="url(#soft)"/>
+      <text x="898" y="134" text-anchor="middle" fill="#8FF0CB" font-size="14" font-weight="700">3</text>
     </g>
-    <g fill="#ACBAC6" font-size="16">
-      <text x="76" y="249">Выберите файлы и переведите</text>
-      <text x="76" y="275">нужные карточки в «Вкл».</text>
-      <text x="486" y="249">Настройте режимы окон</text>
-      <text x="486" y="275">и автозапуск самого менеджера.</text>
-      <text x="896" y="249">AutoStarter запустит</text>
-      <text x="896" y="275">все включённые записи.</text>
+
+    <g fill="#7FD9BA" font-size="11.5" font-weight="700" letter-spacing="2.2">
+      <text x="76" y="192">СПИСОК</text>
+      <text x="486" y="192">НАСТРОЙКИ</text>
+      <text x="896" y="192">ЗАПУСК</text>
     </g>
-    <g fill="#80E8BF" font-size="12">
-      <text x="76" y="313">.exe  /  .lnk  /  .bat  /  .cmd</text>
-      <text x="486" y="313">Обычный · Свёрнуто · Скрыто · Закрыть</text>
-      <text x="896" y="313">Окно, трей или выход через 30 секунд</text>
+
+    <g fill="#F1F7FA" font-size="23" font-weight="600" letter-spacing="-.3">
+      <text x="76" y="232">Добавьте программы</text>
+      <text x="486" y="232">Выберите поведение</text>
+      <text x="896" y="232">Войдите в Windows</text>
     </g>
-    <circle cx="57" cy="388" r="9" stroke="#688B85"/>
-    <text x="57" y="393" text-anchor="middle" fill="#A8CFC3" font-size="13" font-weight="600">i</text>
-    <text x="79" y="394" fill="#9BACB9" font-size="15">Ручной запуск менеджера тоже запускает включённые программы. Изменение списка — нет.</text>
+
+    <g fill="#A4B4C0" font-size="15.5">
+      <text x="76" y="266">Выберите файлы и переведите</text>
+      <text x="76" y="290">нужные карточки в «Вкл».</text>
+      <text x="486" y="266">Настройте режимы окон</text>
+      <text x="486" y="290">и автозапуск самого менеджера.</text>
+      <text x="896" y="266">AutoStarter запустит</text>
+      <text x="896" y="290">все включённые записи.</text>
+    </g>
+
+    <g font-size="11.5" fill="#8FE6C4">
+      <rect x="76" y="322" width="204" height="26" rx="8" fill="#12271F" stroke="#2C5646"/>
+      <text x="92" y="339">.exe · .lnk · .bat · .cmd</text>
+      <rect x="486" y="322" width="290" height="26" rx="8" fill="#12271F" stroke="#2C5646"/>
+      <text x="502" y="339">Обычный · Свёрнуто · Скрыто · Закрыть</text>
+      <rect x="896" y="322" width="292" height="26" rx="8" fill="#12271F" stroke="#2C5646"/>
+      <text x="912" y="339">Окно, трей или выход через 30 секунд</text>
+    </g>
+
+    <!-- footer note -->
+    <rect x="48" y="398" width="1184" height="42" rx="12" fill="#101922" stroke="#25333D"/>
+    <circle cx="74" cy="419" r="10" fill="#14302A" stroke="#3E6E5E"/>
+    <text x="74" y="424" text-anchor="middle" fill="#8FF0CB" font-size="13" font-weight="700">i</text>
+    <text x="96" y="424" fill="#9FB1BE" font-size="14.5">Ручной запуск менеджера тоже запускает включённые программы. Изменение списка — нет.</text>
   </g>
-  <g stroke="#80E8BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M424 226H446M439 219L446 226L439 233M834 226H856M849 219L856 226L849 233"/>
-    <rect x="361" y="139" width="26" height="26" rx="7" fill="#203C35" stroke="#41675A"/>
-    <path d="M374 146V158M368 152H380"/>
-    <path d="M774 144H799M774 152H799M774 160H799" stroke="#6DAB98"/>
-    <circle cx="781" cy="144" r="3" fill="#15252A"/>
-    <circle cx="793" cy="152" r="3" fill="#15252A"/>
-    <circle cx="784" cy="160" r="3" fill="#15252A"/>
-    <circle cx="1196" cy="152" r="14" fill="#203C35" stroke="#41675A"/>
-    <path d="M1189 152L1194 157L1203 147"/>
+
+  <!-- arrows and card glyphs -->
+  <g stroke="#80E8BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M424 261H444M437 254L444 261L437 268" stroke-opacity=".8"/>
+    <path d="M834 261H854M847 254L854 261L847 268" stroke-opacity=".8"/>
+  </g>
+
+  <g>
+    <rect x="352" y="174" width="34" height="34" rx="11" fill="#1B3A32" stroke="#3E7362"/>
+    <path d="M369 184v14M362 191h14" stroke="url(#mint)" stroke-width="2.2" stroke-linecap="round"/>
+
+    <rect x="762" y="174" width="34" height="34" rx="11" fill="#1B3A32" stroke="#3E7362"/>
+    <g stroke="#8FF0CB" stroke-width="2" stroke-linecap="round">
+      <path d="M769 184h20M769 191h20M769 198h20"/>
+    </g>
+    <circle cx="776" cy="184" r="3.2" fill="#1B3A32" stroke="#C6FFE8" stroke-width="1.6"/>
+    <circle cx="785" cy="191" r="3.2" fill="#1B3A32" stroke="#C6FFE8" stroke-width="1.6"/>
+    <circle cx="779" cy="198" r="3.2" fill="#1B3A32" stroke="#C6FFE8" stroke-width="1.6"/>
+
+    <circle cx="1179" cy="191" r="17" fill="#1B3A32" stroke="#3E7362"/>
+    <path d="M1171 191.5l5.5 5.5L1188 185" stroke="url(#mint)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 </svg>

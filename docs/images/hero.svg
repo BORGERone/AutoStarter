@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="480" viewBox="0 0 1280 480" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">AutoStarter — ваши программы, ваш порядок запуска</title>
+  <desc id="desc">Тёмная обложка с мятными акцентами. От часов расходятся линии к символам приложений. Менеджер запуска программ для Windows на Tauri и Rust.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1019"/>
+      <stop offset="1" stop-color="#0B0D17"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(1000 232) rotate(90) scale(255 320)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#80E8BF" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#80E8BF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mint" x1="909" y1="148" x2="1069" y2="308" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ADFFDD"/>
+      <stop offset="1" stop-color="#53BFB2"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" stroke="#94A3B8" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="480" rx="24" fill="url(#bg)"/>
+  <rect width="1280" height="480" rx="24" fill="url(#grid)"/>
+  <rect width="1280" height="480" rx="24" fill="url(#glow)"/>
+  <rect x=".5" y=".5" width="1279" height="479" rx="23.5" stroke="#24313B"/>
+  <path d="M64 0H236" stroke="#80E8BF" stroke-width="3"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <rect x="64" y="57" width="194" height="32" rx="16" fill="#122921" stroke="#2D5144"/>
+    <circle cx="82" cy="73" r="4" fill="#80E8BF"/>
+    <text x="96" y="78" fill="#A5EFD1" font-size="12" font-weight="600" letter-spacing="1.4">WINDOWS UTILITY</text>
+    <text x="60" y="179" fill="#F1F6FA" font-size="76" font-weight="700" letter-spacing="-3">Auto<tspan fill="#80E8BF">Starter</tspan></text>
+    <text x="64" y="231" fill="#E4EDF2" font-size="26" font-weight="500">Ваши программы.</text>
+    <text x="64" y="268" fill="#E4EDF2" font-size="26" font-weight="500">Ваш порядок запуска.</text>
+    <text x="64" y="313" fill="#9BACB9" font-size="17">Автозапуск Windows · Режимы окон · Системный трей</text>
+    <path d="M64 354H666" stroke="#24313B"/>
+    <text x="64" y="397" fill="#A9B9C7" font-size="13" font-weight="600" letter-spacing="1.5">TAURI + RUST</text>
+    <circle cx="219" cy="392" r="2" fill="#496355"/>
+    <text x="239" y="397" fill="#A9B9C7" font-size="13">10 языков интерфейса</text>
+    <text x="1216" y="429" text-anchor="end" fill="#607784" font-size="11" letter-spacing="2">AUTOSTART MANAGER</text>
+  </g>
+  <g stroke="#80E8BF">
+    <circle cx="989" cy="228" r="174" stroke-opacity=".09"/>
+    <circle cx="989" cy="228" r="137" stroke-opacity=".12" stroke-dasharray="3 10"/>
+    <path d="M923 182L860 112H797M1054 182L1119 112H1164M923 274L860 344H797M1054 274L1119 344H1164" stroke-opacity=".4" stroke-width="2"/>
+    <circle cx="860" cy="112" r="4" fill="#80E8BF" stroke="none"/>
+    <circle cx="1119" cy="344" r="4" fill="#80E8BF" stroke="none"/>
+  </g>
+  <rect x="905" y="144" width="168" height="168" rx="46" fill="#0F211F" stroke="#80E8BF" stroke-opacity=".35"/>
+  <rect x="914" y="153" width="150" height="150" rx="39" fill="#152B27"/>
+  <circle cx="989" cy="228" r="49" stroke="url(#mint)" stroke-width="5"/>
+  <path d="M989 195V228L1011 242" stroke="url(#mint)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="989" cy="228" r="5" fill="#A0F9D4"/>
+  <g fill="#111C26" stroke="#324A4F">
+    <rect x="747" y="82" width="60" height="60" rx="17"/>
+    <rect x="1154" y="82" width="60" height="60" rx="17"/>
+    <rect x="747" y="314" width="60" height="60" rx="17"/>
+    <rect x="1154" y="314" width="60" height="60" rx="17"/>
+  </g>
+  <g stroke="#A2DCCB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="763" y="99" width="28" height="25" rx="4"/>
+    <path d="M763 106H791M1173 103L1181 112L1173 121M1186 121H1196"/>
+    <path d="M768 335L777 330L786 335V345L777 350L768 345ZM768 335L777 340L786 335M777 340V350"/>
+    <rect x="1171" y="333" width="26" height="19" rx="3"/>
+    <path d="M1176 358H1192M1184 352V358"/>
+  </g>
+</svg>

@@ -1,114 +1,117 @@
 # AutoStarter
 
-![AutoStarter — ваши программы, ваш порядок запуска. Менеджер для Windows на Tauri и Rust.](docs/images/hero.svg)
+<!-- language-switcher -->
+**English** · [Русский](docs/README.ru.md) · [中文](docs/README.zh.md) · [Español](docs/README.es.md) · [العربية](docs/README.ar.md) · [Português](docs/README.pt.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [日本語](docs/README.ja.md) · [हिन्दी](docs/README.hi.md)
 
-**Менеджер запуска программ для Windows с настройкой поведения окон и работой в системном трее.**
+![AutoStarter — your programs, your startup order. A Windows manager built with Tauri and Rust.](docs/images/hero.svg)
 
-AutoStarter (AutoStart Manager в интерфейсе) запускает выбранные приложения при своём старте. Добавьте нужные программы, настройте их поведение и включите автозапуск самого менеджера — тогда ваш набор приложений будет запускаться при входе в Windows.
+**A startup manager for Windows with window behaviour options and system tray support.**
 
-Проект построен на **Tauri 1, Rust, TypeScript и Vite 5**.
+AutoStarter (AutoStart Manager in the interface) launches the applications you select whenever it starts. Add the programs you need, configure their behaviour and enable autostart for the manager itself — your set of applications will then start when you sign in to Windows.
 
-> **Только Windows.** Приложение использует реестр и Win32 API; запуск и сборка настольной версии на Linux и macOS в текущей реализации не поддерживаются.
+The project is built with **Tauri 1, Rust, TypeScript and Vite 5**.
 
-## Содержание
+> **Windows only.** The application uses the registry and the Win32 API; running and building the desktop version on Linux and macOS is not supported in the current implementation.
 
-- [Возможности](#возможности)
-- [Быстрый старт](#быстрый-старт)
-- [Режимы запуска программ](#режимы-запуска-программ)
-- [Настройки менеджера](#настройки-менеджера)
-- [Установка и сборка из исходников](#установка-и-сборка-из-исходников)
-- [Хранение данных и автозапуск Windows](#хранение-данных-и-автозапуск-windows)
-- [Частые вопросы](#частые-вопросы)
-- [Структура проекта](#структура-проекта)
-- [Участие в разработке](#участие-в-разработке)
-- [Лицензия](#лицензия)
+## Contents
 
-## Возможности
+- [Features](#features)
+- [Quick start](#quick-start)
+- [Program launch modes](#program-launch-modes)
+- [Manager settings](#manager-settings)
+- [Installing and building from source](#installing-and-building-from-source)
+- [Data storage and Windows autostart](#data-storage-and-windows-autostart)
+- [FAQ](#faq)
+- [Project structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-- **Свой список программ:** добавление `.exe`, ярлыков `.lnk` и сценариев `.bat` / `.cmd` через диалог выбора файла.
-- **Независимое включение:** временно исключайте программу из запуска, не удаляя её из списка.
-- **Управление окнами:** обычный, свёрнутый или скрытый запуск, а также отправка команды закрытия после обнаружения процесса.
-- **Запуск при входе в Windows:** автозапуск менеджера для текущего пользователя.
-- **Работа в трее:** скрытие главного окна, восстановление и выход через контекстное меню значка.
-- **Режим без интерфейса:** запуск включённых программ и завершение менеджера через 30 секунд.
-- **Локальные настройки:** список программ и параметры сохраняются в JSON-файлах.
-- **10 языков интерфейса:** русский, английский, китайский, испанский, арабский, португальский, французский, немецкий, японский и хинди.
+## Features
 
-## Быстрый старт
+- **Your own program list:** add `.exe` files, `.lnk` shortcuts and `.bat` / `.cmd` scripts through the file picker dialog.
+- **Independent toggles:** temporarily exclude a program from startup without removing it from the list.
+- **Window control:** normal, minimised or hidden launch, plus sending a close command once the process is detected.
+- **Start at Windows sign-in:** autostart of the manager for the current user.
+- **Tray support:** hide the main window, restore it and quit through the icon's context menu.
+- **Headless mode:** launch the enabled programs and quit the manager after 30 seconds.
+- **Local settings:** the program list and options are stored in JSON files.
+- **10 interface languages:** Russian, English, Chinese, Spanish, Arabic, Portuguese, French, German, Japanese and Hindi.
 
-![Три шага: добавьте программы и включите их карточки, настройте режимы и автозапуск менеджера, войдите в Windows. Ручной запуск менеджера также запускает включённые записи.](docs/images/workflow.svg)
+## Quick start
 
-Если приложение ещё не собрано, сначала выполните [инструкцию сборки](#установка-и-сборка-из-исходников).
+![Three steps: add programs and enable their cards, configure modes and the manager's autostart, sign in to Windows. Starting the manager manually also launches the enabled entries.](docs/images/workflow.svg)
 
-1. Запустите `tauri-app.exe` — так сейчас называется исполняемый файл проекта.
-2. Откройте настройки кнопкой в правом нижнем углу и выберите **Language → Русский**.
-3. Нажмите **«+ Добавить»** и выберите программу или сценарий.
-4. При необходимости отметьте **«Свёрнуто»**, **«Скрыто»** или **«Закрыть»** в карточке программы.
-5. Переведите переключатель карточки в положение **«Вкл»**. Новые записи по умолчанию выключены.
-6. В настройках включите **«Автозапуск»**, если хотите запускать менеджер вместе с выбранными программами при входе в Windows.
+If the application has not been built yet, follow the [build instructions](#installing-and-building-from-source) first.
 
-Изменения сохраняются автоматически. Кнопка удаления убирает только запись из списка — файл программы остаётся на диске.
+1. Run `tauri-app.exe` — that is the current name of the project's executable.
+2. Open the settings with the button in the bottom right corner and pick **Language → English**.
+3. Click **"+ Add"** and select a program or script.
+4. If needed, tick **"Minimized"**, **"Hidden"** or **"Close"** on the program card.
+5. Switch the card's toggle to **"On"**. New entries are disabled by default.
+6. In the settings enable **"Autostart"** if you want the manager and the selected programs to start when you sign in to Windows.
 
-> **Важно:** включённые программы запускаются при каждом новом запуске процесса AutoStarter, в том числе вручную. Добавление записи или переключение в «Вкл» не запускает её немедленно. Чтобы проверить настройку, полностью завершите менеджер через **Quit** в трее и откройте его снова. Уже работающие приложения могут запуститься повторно.
+Changes are saved automatically. The delete button only removes the entry from the list — the program file stays on disk.
 
-## Режимы запуска программ
+> **Important:** enabled programs are launched on every new start of the AutoStarter process, including manual ones. Adding an entry or switching it to "On" does not launch it immediately. To verify your setup, fully quit the manager via **Quit** in the tray and open it again. Applications that are already running may be started a second time.
 
-| Режим в карточке | Поведение |
+## Program launch modes
+
+| Mode on the card | Behaviour |
 | --- | --- |
-| Без дополнительных отметок | Обычный запуск через `cmd /c start`. |
-| **Свёрнуто** | Запуск через `cmd /c start /min` с запросом свёрнутого окна. |
-| **Скрыто** | Запуск через PowerShell `Start-Process -WindowStyle Hidden`. Это запрос скрыть окно, а не гарантия появления значка программы в трее. |
-| **Закрыть** | Обычный запуск, затем поиск процесса по имени файла примерно в течение 30 секунд. После обнаружения менеджер ждёт ещё 0,5 секунды и отправляет видимым окнам процесса системную команду закрытия. |
-| **Выкл / Вкл** | Исключает или включает запись в запуск при следующем старте менеджера. |
+| No extra options | Normal launch through `cmd /c start`. |
+| **Minimized** | Launch through `cmd /c start /min`, requesting a minimised window. |
+| **Hidden** | Launch through PowerShell `Start-Process -WindowStyle Hidden`. This is a request to hide the window, not a guarantee that the program will appear in the tray. |
+| **Close** | Normal launch, then a search for the process by file name for roughly 30 seconds. Once detected, the manager waits another 0.5 seconds and sends the system close command to the process's visible windows. |
+| **Off / On** | Excludes or includes the entry in the launch list on the manager's next start. |
 
-**Особенности и ограничения:**
+**Notes and limitations:**
 
-- «Свёрнуто» и «Скрыто» взаимно исключаются в интерфейсе.
-- «Закрыть» имеет приоритет над обоими режимами и не означает принудительное завершение процесса. Целевое приложение может закрыться, свернуться в собственный трей, показать диалог или проигнорировать запрос.
-- Поиск для «Закрыть» выполняется по имени файла, а не по полному пути или идентификатору запущенного экземпляра. Поэтому команда может затронуть уже работающий процесс с тем же именем. Для ярлыков и сценариев имя выбранного файла обычно не совпадает с именем реального процесса.
-- Некоторые приложения самостоятельно управляют своими окнами и могут игнорировать скрытый или свёрнутый запуск.
-- Настройка аргументов командной строки, рабочего каталога и индивидуальных задержек в интерфейсе не предусмотрена.
+- "Minimized" and "Hidden" are mutually exclusive in the interface.
+- "Close" takes priority over both modes and does not mean force-terminating the process. The target application may close, minimise to its own tray, show a dialog or ignore the request.
+- The search for "Close" is performed by file name, not by full path or by the identifier of the launched instance. The command may therefore affect an already running process with the same name. For shortcuts and scripts the selected file's name usually differs from the real process name.
+- Some applications manage their own windows and may ignore a hidden or minimised launch.
+- Configuring command-line arguments, the working directory and individual delays is not available in the interface.
 
-Добавляйте только доверенные программы и сценарии. Не используйте «Закрыть» для приложений с несохранёнными данными без предварительной проверки.
+Only add programs and scripts you trust. Do not use "Close" for applications with unsaved data without testing it first.
 
-## Настройки менеджера
+## Manager settings
 
-| Настройка | Что делает |
+| Setting | What it does |
 | --- | --- |
-| **Язык** | Меняет язык интерфейса; по умолчанию выбран английский. |
-| **Запускать в трей** | Скрывает главное окно при запуске обычной версии и показывает значок в области уведомлений. |
-| **Автозапуск** | Добавляет AutoStarter в автозапуск Windows для текущего пользователя. По умолчанию выключен. |
-| **Закрывать после отработки** | При автозапуске Windows добавляет флаг `--close-after-30`: менеджер запускает включённые программы, ждёт 30 секунд и завершается, не создавая интерфейс и значок трея. Доступно только при включённом «Автозапуске». |
+| **Language** | Changes the interface language; English is selected by default. |
+| **Start in tray** | Hides the main window when the regular version starts and shows an icon in the notification area. |
+| **Autostart** | Adds AutoStarter to Windows autostart for the current user. Disabled by default. |
+| **Close after run** | On Windows autostart adds the `--close-after-30` flag: the manager launches the enabled programs, waits 30 seconds and quits without creating the interface or the tray icon. Available only when "Autostart" is enabled. |
 
-**«Закрыть» в карточке и «Закрывать после отработки» в настройках — разные функции:** первая относится к окнам выбранной программы, вторая — к самому менеджеру. Интервал 30 секунд фиксированный и не означает ожидание завершения всех запущенных приложений.
+**"Close" on a card and "Close after run" in the settings are different features:** the first one applies to the windows of the selected program, the second one to the manager itself. The 30-second interval is fixed and does not mean waiting for all launched applications to finish.
 
-Обычный ручной запуск без флага открывает менеджер с учётом настройки «Запускать в трей», даже если включено «Закрывать после отработки».
+A regular manual start without the flag opens the manager according to the "Start in tray" setting, even if "Close after run" is enabled.
 
-### Управление через трей
+### Tray control
 
-- **Крестик окна** скрывает менеджер в трей, а не завершает его.
-- **Щелчок по значку** или пункт **Show** возвращает главное окно.
-- **Правый щелчок → Quit** полностью завершает менеджер.
+- **The window's close button** hides the manager in the tray instead of quitting it.
+- **Clicking the icon** or the **Show** item brings the main window back.
+- **Right click → Quit** fully terminates the manager.
 
-Названия пунктов меню трея сейчас отображаются на английском независимо от языка интерфейса.
+The tray menu item names are currently displayed in English regardless of the interface language.
 
-## Установка и сборка из исходников
+## Installing and building from source
 
-### Требования
+### Requirements
 
-Для запуска графической версии нужен **Microsoft Edge WebView2 Runtime**. Практический вариант окружения для сборки — Windows 10/11 с установленными:
+The graphical version requires the **Microsoft Edge WebView2 Runtime**. A practical build environment is Windows 10/11 with the following installed:
 
-- [Node.js](https://nodejs.org/) **20 или новее** и npm; рекомендуется актуальная LTS-версия.
-- [Rust](https://rustup.rs/) — актуальный stable toolchain для Windows MSVC. В `Cargo.toml` указан минимум 1.70, но зависимости из lock-файла могут требовать более новую версию.
-- [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) с компонентами **Desktop development with C++**, MSVC и Windows SDK.
+- [Node.js](https://nodejs.org/) **20 or newer** and npm; the current LTS release is recommended.
+- [Rust](https://rustup.rs/) — a current stable toolchain for Windows MSVC. `Cargo.toml` declares a minimum of 1.70, but dependencies from the lock file may require a newer version.
+- [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) with the **Desktop development with C++** workload, MSVC and the Windows SDK.
 - [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/).
-- [Git](https://git-scm.com/) для клонирования репозитория.
+- [Git](https://git-scm.com/) to clone the repository.
 
-Дополнительные сведения: [подготовка окружения Tauri 1 для Windows](https://v1.tauri.app/v1/guides/getting-started/prerequisites/#setting-up-windows).
+More details: [setting up the Tauri 1 environment for Windows](https://v1.tauri.app/v1/guides/getting-started/prerequisites/#setting-up-windows).
 
-### Получение исходников
+### Getting the sources
 
-В PowerShell выполните:
+Run the following in PowerShell:
 
 ```powershell
 git clone https://github.com/BORGERone/AutoStarter.git
@@ -116,127 +119,127 @@ cd AutoStarter
 npm ci
 ```
 
-`npm ci` устанавливает зависимости по `package-lock.json`. При первой сборке также потребуется доступ к сети для загрузки Rust-зависимостей и инструментов упаковки.
+`npm ci` installs dependencies according to `package-lock.json`. The first build also needs network access to download Rust dependencies and packaging tools.
 
-### Режим разработки
+### Development mode
 
 ```powershell
 npm run tauri-dev
 ```
 
-Или запустите `dev.bat` из Проводника. Tauri автоматически поднимает Vite на порту **5174** и открывает настольное окно.
+Or run `dev.bat` from Explorer. Tauri automatically starts Vite on port **5174** and opens the desktop window.
 
-> `npm run dev` запускает только веб-интерфейс. В обычном браузере недоступны функции Tauri: выбор файлов через нативный диалог, сохранение настроек, управление треем и реестром. Используйте `npm run tauri-dev` для полноценной проверки приложения.
+> `npm run dev` starts only the web interface. Tauri features are unavailable in a regular browser: the native file picker, saving settings, tray and registry control. Use `npm run tauri-dev` for a full check of the application.
 
-### Сборка с установщиками
+### Build with installers
 
 ```powershell
 npm run tauri-build
 ```
 
-Команда собирает интерфейс, Rust-приложение и пакеты, заданные конфигурацией Tauri. Результаты находятся в:
+The command builds the interface, the Rust application and the packages defined by the Tauri configuration. The results are located in:
 
-- `src-tauri/target/release/tauri-app.exe` — исполняемый файл;
-- `src-tauri/target/release/bundle/` — установочные пакеты, созданные сборщиком.
+- `src-tauri/target/release/tauri-app.exe` — the executable;
+- `src-tauri/target/release/bundle/` — the installation packages created by the bundler.
 
-### Сборка без установщика
+### Build without an installer
 
 ```powershell
 .\build.bat
 ```
 
-Сценарий последовательно выполняет `npm run build` и `cargo build --release` в каталоге `src-tauri`. Результат — `src-tauri/target/release/tauri-app.exe`. Для графического интерфейса по-прежнему требуется WebView2 Runtime.
+The script runs `npm run build` and then `cargo build --release` in the `src-tauri` directory. The result is `src-tauri/target/release/tauri-app.exe`. The graphical interface still requires the WebView2 Runtime.
 
-Ручной запуск режима без интерфейса:
+Running the headless mode manually:
 
 ```powershell
 .\src-tauri\target\release\tauri-app.exe --close-after-30
 ```
 
-### Проверка интерфейса
+### Checking the interface
 
 ```powershell
 npm run build
 ```
 
-Команда выполняет проверку TypeScript и production-сборку Vite. Она не проверяет Rust-код и поведение Win32 API. Отдельного скрипта автоматических тестов в `package.json` сейчас нет.
+The command runs the TypeScript check and the Vite production build. It does not check the Rust code or the Win32 API behaviour. There is currently no separate automated test script in `package.json`.
 
-## Хранение данных и автозапуск Windows
+## Data storage and Windows autostart
 
-Настройки текущего пользователя хранятся в каталоге:
+The current user's settings are stored in the directory:
 
 ```text
 %APPDATA%\tauri-launcher\
-├── programs.json    # Список программ, пути и режимы запуска
-└── settings.json    # Язык и настройки менеджера
+├── programs.json    # Program list, paths and launch modes
+└── settings.json    # Language and manager settings
 ```
 
-Для резервной копии полностью завершите менеджер и скопируйте оба файла. При переносе на другой компьютер проверьте пути к программам. Параметры автозапуска в реестре не входят в эту копию: после переноса включите автозапуск заново из нужного экземпляра приложения.
+For a backup, fully quit the manager and copy both files. When moving to another computer, check the program paths. The autostart parameters in the registry are not part of this copy: after moving, enable autostart again from the instance of the application you want.
 
-При включении «Автозапуска» создаётся значение **`AutoStartManager`** в разделе:
+Enabling "Autostart" creates the value **`AutoStartManager`** in the key:
 
 ```text
 HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 ```
 
-В нём сохраняется путь к текущему исполняемому файлу менеджера и, при необходимости, флаг `--close-after-30`. Это запуск **при входе текущего пользователя**, а не системная служба. Отдельные записи для каждой добавленной программы не создаются; существующим автозапуском других приложений менеджер не управляет.
+It stores the path to the manager's current executable and, if needed, the `--close-after-30` flag. This is a startup entry **for the current user's sign-in**, not a system service. Separate entries are not created for each added program; the manager does not manage the existing autostart entries of other applications.
 
-**Перед перемещением или удалением исполняемого файла отключите «Автозапуск».** После перемещения откройте менеджер из нового расположения и включите его снова. Для полного сброса сначала отключите автозапуск, завершите приложение через Quit, а затем удалите каталог `%APPDATA%\tauri-launcher` — это удалит сохранённый список и настройки.
+**Disable "Autostart" before moving or deleting the executable.** After moving it, open the manager from its new location and enable the option again. For a complete reset, first disable autostart, quit the application via Quit, and then delete the `%APPDATA%\tauri-launcher` directory — this removes the saved list and settings.
 
-## Частые вопросы
+## FAQ
 
-**Программа добавлена, но не запускается.**
+**A program has been added but does not start.**
 
-Проверьте переключатель «Вкл» в её карточке и существование файла по указанному пути. Полностью перезапустите менеджер: изменение списка само по себе ничего не запускает. Для запуска при входе в Windows также должен быть включён «Автозапуск» в настройках менеджера.
+Check the "On" toggle on its card and make sure the file exists at the given path. Fully restart the manager: changing the list does not launch anything on its own. For a launch at Windows sign-in, "Autostart" must also be enabled in the manager settings.
 
-**Приложения открываются дважды.**
+**Applications open twice.**
 
-AutoStarter не проверяет, запущена ли программа ранее. Проверьте её собственную настройку автозапуска и список автозагрузки Windows. Повторный запуск самого менеджера также повторно запускает все включённые записи.
+AutoStarter does not check whether a program is already running. Check the program's own autostart setting and the Windows startup list. Restarting the manager itself also relaunches all enabled entries.
 
-**После нажатия крестика менеджер всё ещё работает.**
+**The manager is still running after I clicked the close button.**
 
-Это ожидаемое поведение. Найдите значок AutoStart Manager в области уведомлений, при необходимости раскройте скрытые значки, и выберите Quit.
+This is the expected behaviour. Find the AutoStart Manager icon in the notification area, expand the hidden icons if needed, and choose Quit.
 
-**Приложение не появляется после входа в Windows.**
+**The application does not appear after I sign in to Windows.**
 
-Проверьте «Запускать в трей» и «Закрывать после отработки»: в первом случае окно скрыто, во втором интерфейс вообще не создаётся. Для изменения настроек запустите исполняемый файл вручную без флага `--close-after-30`.
+Check "Start in tray" and "Close after run": in the first case the window is hidden, in the second no interface is created at all. To change the settings, run the executable manually without the `--close-after-30` flag.
 
-**Сборка не находит компоновщик или Windows SDK.**
+**The build cannot find the linker or the Windows SDK.**
 
-Проверьте установку C++ Build Tools и MSVC toolchain Rust, затем перезапустите терминал. Для проблем с отображением окна проверьте наличие WebView2 Runtime.
+Check the installation of the C++ Build Tools and the Rust MSVC toolchain, then restart the terminal. For window display problems, check that the WebView2 Runtime is present.
 
-**Режим разработки сообщает, что порт занят.**
+**Development mode reports that the port is busy.**
 
-Освободите порт 5174, например завершив предыдущий экземпляр Vite. Порт используется и в конфигурации Vite, и в конфигурации Tauri.
+Free port 5174, for example by terminating the previous Vite instance. The port is used both in the Vite configuration and in the Tauri configuration.
 
-## Структура проекта
+## Project structure
 
 ```text
 AutoStarter/
-├── index.html                 # Разметка главного окна и настроек
+├── index.html                 # Markup of the main window and settings
 ├── src/
-│   ├── main.ts                # Интерфейс, переводы и вызовы Tauri
-│   └── styles.css             # Стили приложения
+│   ├── main.ts                # Interface, translations and Tauri calls
+│   └── styles.css             # Application styles
 ├── src-tauri/
-│   ├── src/main.rs            # Запуск программ, JSON, реестр и Win32-трей
-│   ├── Cargo.toml             # Зависимости и параметры Rust
-│   ├── Cargo.lock             # Зафиксированные Rust-зависимости
-│   ├── build.rs               # Сценарий сборки Tauri
-│   └── tauri.conf.json        # Окно, разрешения и упаковка
-├── icon.ico                   # Иконка приложения и трея
-├── package.json               # npm-команды и зависимости интерфейса
-├── package-lock.json          # Зафиксированные npm-зависимости
-├── vite.config.ts             # Настройки Vite
-├── build.bat                  # Release-сборка без установщика
-└── dev.bat                    # Запуск режима разработки
+│   ├── src/main.rs            # Program launching, JSON, registry and Win32 tray
+│   ├── Cargo.toml             # Rust dependencies and settings
+│   ├── Cargo.lock             # Pinned Rust dependencies
+│   ├── build.rs               # Tauri build script
+│   └── tauri.conf.json        # Window, permissions and packaging
+├── icon.ico                   # Application and tray icon
+├── package.json               # npm commands and interface dependencies
+├── package-lock.json          # Pinned npm dependencies
+├── vite.config.ts             # Vite settings
+├── build.bat                  # Release build without an installer
+└── dev.bat                    # Start development mode
 ```
 
-## Участие в разработке
+## Contributing
 
-Сообщения об ошибках и предложения можно оставлять в [Issues](https://github.com/BORGERone/AutoStarter/issues). Для воспроизводимого отчёта укажите версию Windows, способ запуска или сборки, шаги и ожидаемое поведение. Перед публикацией журналов или JSON-файлов удалите личные данные и приватные пути.
+Bug reports and suggestions can be submitted in [Issues](https://github.com/BORGERone/AutoStarter/issues). For a reproducible report, include your Windows version, how you ran or built the application, the steps and the expected behaviour. Remove personal data and private paths before publishing logs or JSON files.
 
-Для изменений интерфейса выполните `npm run build`; изменения запуска, реестра и трея дополнительно проверяйте в настольной версии на Windows. Pull request желательно сопровождать описанием изменений и выполненных проверок.
+For interface changes run `npm run build`; changes to launching, the registry and the tray should additionally be verified in the desktop version on Windows. A pull request should preferably come with a description of the changes and the checks you performed.
 
-## Лицензия
+## License
 
-В `src-tauri/Cargo.toml` указана лицензия **MIT**. Отдельный файл `LICENSE` с полным текстом лицензии в репозитории пока отсутствует.
+`src-tauri/Cargo.toml` declares the **MIT** license. A separate `LICENSE` file with the full license text is not yet present in the repository.

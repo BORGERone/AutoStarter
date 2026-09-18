@@ -79,7 +79,7 @@
       <circle cx="246" cy="413" r="3.5" fill="#6FB6FF"/>
       <text x="260" y="418" fill="#C3D2DD" letter-spacing=".4">10 языков интерфейса</text>
 
-      <rect x="434" y="396" width="150" height="34" rx="10" fill="#122029" stroke="#2A3E4A"/>
+      <rect x="434" y="396" width="180" height="34" rx="10" fill="#122029" stroke="#2A3E4A"/>
       <circle cx="454" cy="413" r="3.5" fill="#80E8BF"/>
       <text x="468" y="418" fill="#C3D2DD" letter-spacing=".4">Локальные данные</text>
     </g>
@@ -139,7 +139,7 @@
     </g>
 
     <rect x="850" y="360" width="112" height="30" rx="9" fill="#17372D" stroke="#3B7460"/>
-    <path d="M868 375v-12M862 369h12" stroke="#8FF0CB" stroke-width="2" stroke-linecap="round"/>
+    <path d="M868 381v-12M862 375h12" stroke="#8FF0CB" stroke-width="2" stroke-linecap="round"/>
     <text x="886" y="379" fill="#A7F0D3" font-size="12" font-weight="600">Добавить</text>
     <circle cx="1163" cy="375" r="15" fill="#152029" stroke="#31444F"/>
     <path d="M1163 369.5v11M1157.5 375h11" stroke="#9BB0BD" stroke-width="2" stroke-linecap="round" transform="rotate(45 1163 375)"/>

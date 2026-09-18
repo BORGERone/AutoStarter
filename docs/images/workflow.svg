@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Как настроить AutoStarter: три шага</title>
+  <desc id="desc">Добавьте программы и включите их карточки. Выберите режимы окон и включите автозапуск менеджера. При следующем входе в Windows менеджер запустит включённые программы. Ручной запуск менеджера тоже запускает включённые записи.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C131D"/>
+      <stop offset="1" stop-color="#0B0D17"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="110" x2="0" y2="332" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#15252A"/>
+      <stop offset="1" stop-color="#111922"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="440" rx="24" fill="url(#bg)"/>
+  <rect x=".5" y=".5" width="1279" height="439" rx="23.5" stroke="#24313B"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="48" y="55" fill="#EEF4F8" font-size="25" font-weight="600">Один раз настроить. Запускать каждый день.</text>
+    <text x="48" y="83" fill="#9BACB9" font-size="15">От списка приложений — к запуску при входе в Windows.</text>
+    <g fill="url(#card)" stroke="#2C3E47">
+      <rect x="48" y="116" width="364" height="222" rx="18"/>
+      <rect x="458" y="116" width="364" height="222" rx="18"/>
+      <rect x="868" y="116" width="364" height="222" rx="18"/>
+    </g>
+    <g fill="#80E8BF" font-size="12" font-weight="600" letter-spacing="2">
+      <text x="76" y="155">01 / СПИСОК</text>
+      <text x="486" y="155">02 / НАСТРОЙКИ</text>
+      <text x="896" y="155">03 / ЗАПУСК</text>
+    </g>
+    <g fill="#EEF4F8" font-size="23" font-weight="600">
+      <text x="76" y="212">Добавьте программы</text>
+      <text x="486" y="212">Выберите поведение</text>
+      <text x="896" y="212">Войдите в Windows</text>
+    </g>
+    <g fill="#ACBAC6" font-size="16">
+      <text x="76" y="249">Выберите файлы и переведите</text>
+      <text x="76" y="275">нужные карточки в «Вкл».</text>
+      <text x="486" y="249">Настройте режимы окон</text>
+      <text x="486" y="275">и автозапуск самого менеджера.</text>
+      <text x="896" y="249">AutoStarter запустит</text>
+      <text x="896" y="275">все включённые записи.</text>
+    </g>
+    <g fill="#80E8BF" font-size="12">
+      <text x="76" y="313">.exe  /  .lnk  /  .bat  /  .cmd</text>
+      <text x="486" y="313">Обычный · Свёрнуто · Скрыто · Закрыть</text>
+      <text x="896" y="313">Окно, трей или выход через 30 секунд</text>
+    </g>
+    <circle cx="57" cy="388" r="9" stroke="#688B85"/>
+    <text x="57" y="393" text-anchor="middle" fill="#A8CFC3" font-size="13" font-weight="600">i</text>
+    <text x="79" y="394" fill="#9BACB9" font-size="15">Ручной запуск менеджера тоже запускает включённые программы. Изменение списка — нет.</text>
+  </g>
+  <g stroke="#80E8BF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M424 226H446M439 219L446 226L439 233M834 226H856M849 219L856 226L849 233"/>
+    <rect x="361" y="139" width="26" height="26" rx="7" fill="#203C35" stroke="#41675A"/>
+    <path d="M374 146V158M368 152H380"/>
+    <path d="M774 144H799M774 152H799M774 160H799" stroke="#6DAB98"/>
+    <circle cx="781" cy="144" r="3" fill="#15252A"/>
+    <circle cx="793" cy="152" r="3" fill="#15252A"/>
+    <circle cx="784" cy="160" r="3" fill="#15252A"/>
+    <circle cx="1196" cy="152" r="14" fill="#203C35" stroke="#41675A"/>
+    <path d="M1189 152L1194 157L1203 147"/>
+  </g>
+</svg>
